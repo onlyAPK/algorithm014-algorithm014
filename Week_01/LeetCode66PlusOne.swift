@@ -10,14 +10,16 @@ import UIKit
 
 class LeetCode66PlusOne: NSObject {
     func plusOne(_ digits: [Int]) -> [Int] {
-        var result:[Int] = []
-        result = digits
-        var index = digits.count-1
+        var result = digits
         for i in (0..<digits.count).reversed() {
-            if digits[i] > 9 {
-                
+            if digits[i] > 8 {
+                result[i] = 0
+                if i==0 {
+                    result.insert(1, at: 0)
+                }
             }else{
-                index = i
+                result[i] = digits[i]+1
+                break
             }
         }
         return result
